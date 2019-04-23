@@ -43,8 +43,8 @@ class Starship extends Model
         return $this->belongsToMany(
             People::class,
             'people_has_starships',
-            'people_id',
             'starship_id',
+            'people_id',
             'id',
             'id'
         );

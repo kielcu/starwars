@@ -37,7 +37,7 @@ class Species extends Model
 
     public function homeworld(): HasOne
     {
-        return $this->hasOne(Planet::class, 'planet_id', 'id');
+        return $this->hasOne(Planet::class, 'id', 'planet_id');
     }
 
     public function people(): BelongsToMany
@@ -45,8 +45,8 @@ class Species extends Model
         return $this->belongsToMany(
             People::class,
             'people_has_species',
-            'people_id',
             'species_id',
+            'people_id',
             'id',
             'id'
         );

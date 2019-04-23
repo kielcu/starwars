@@ -10,6 +10,7 @@ namespace App\Models;
 
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class People extends Model
@@ -47,8 +48,8 @@ class People extends Model
         return $this->belongsToMany(
             Film::class,
             'films_has_characters',
-            'film_id',
             'character_id',
+            'film_id',
             'id',
             'id'
         );
@@ -59,8 +60,8 @@ class People extends Model
         return $this->belongsToMany(
             Species::class,
             'people_has_species',
-            'species_id',
             'people_id',
+            'species_id',
             'id',
             'id'
         );
@@ -71,8 +72,8 @@ class People extends Model
         return $this->belongsToMany(
             Vehicle::class,
             'people_has_vehicles',
-            'vehicle_id',
             'people_id',
+            'vehicle_id',
             'id',
             'id'
         );
@@ -83,8 +84,8 @@ class People extends Model
         return $this->belongsToMany(
             Starship::class,
             'people_has_starships',
-            'starship_id',
             'people_id',
+            'starship_id',
             'id',
             'id'
         );

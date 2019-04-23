@@ -39,8 +39,8 @@ class Planet extends Model
     {
         return $this->hasMany(
             People::class,
-            'people_id',
-            'id'
+            'id',
+            'people_id'
         );
     }
 

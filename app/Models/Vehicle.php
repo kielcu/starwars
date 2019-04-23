@@ -39,10 +39,10 @@ class Vehicle extends Model
     public function pilots(): BelongsToMany
     {
         return $this->belongsToMany(
-            Vehicle::class,
+            People::class,
             'people_has_vehicles',
-            'people_id',
             'vehicle_id',
+            'people_id',
             'id',
             'id'
         );
@@ -51,7 +51,7 @@ class Vehicle extends Model
     public function films(): BelongsToMany
     {
         return $this->belongsToMany(
-            Vehicle::class,
+            Film::class,
             'films_has_vehicles',
             'vehicle_id',
             'film_id',
