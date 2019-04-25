@@ -2,8 +2,6 @@
 /**
  * Created by PhpStorm.
  * User: Lukasz
- * Date: 2019-04-23
- * Time: 17:11
  */
 
 namespace App\Models;
