@@ -14,7 +14,7 @@ class AddHomeworldToPeopleTable extends Migration
     public function up()
     {
         Schema::table('people', function (Blueprint $table) {
-            $table->unsignedInteger('planet_id');
+            $table->unsignedInteger('planet_id')->nullable();
 
             $table->foreign('planet_id')
                 ->on('planets')

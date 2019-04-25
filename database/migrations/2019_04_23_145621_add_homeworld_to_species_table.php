@@ -14,7 +14,7 @@ class AddHomeworldToSpeciesTable extends Migration
     public function up()
     {
         Schema::table('species', function (Blueprint $table) {
-            $table->unsignedInteger('planet_id');
+            $table->unsignedInteger('planet_id')->nullable();
 
             $table->foreign('planet_id')
                 ->on('planets')

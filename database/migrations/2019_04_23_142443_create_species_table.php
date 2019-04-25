@@ -16,8 +16,8 @@ class CreateSpeciesTable extends Migration
         Schema::create('species', function (Blueprint $table) {
             $table->unsignedInteger('id');
             $table->string('name', 200);
-            $table->string('classification', 5);
-            $table->string('designation', 5);
+            $table->string('classification', 20);
+            $table->string('designation', 20);
             $table->string('average_height', 10);
             $table->string('skin_colors', 250);
             $table->string('hair_colors', 250);

@@ -22,7 +22,7 @@ class CreatePeopleTable extends Migration
             $table->string('skin_color', 50);
             $table->string('eye_color', 50);
             $table->string('birth_year', 10);
-            $table->string('gender', 10);
+            $table->string('gender', 20);
 
             $table->primary(['id']);
         });
