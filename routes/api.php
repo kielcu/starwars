@@ -1,5 +1,6 @@
 <?php
 
+use App\User;
 use Illuminate\Http\Request;
 
 /*
@@ -15,4 +16,16 @@ use Illuminate\Http\Request;
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+Route::middleware(['api.json', 'auth:api'])->group(function() {
+    Route::get('people', 'Api\PeopleController@index');
+});
+
+Route::middleware('token_check')->group(function() {
+    Route::get('people2', 'Api\PeopleController@index');
+});
+
+Route::middleware('jwt.auth')->group(function() {
+    Route::get('people3', 'Api\PeopleController@index');
 });
