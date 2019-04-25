@@ -2,7 +2,10 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\ApiJsonMiddleware;
+use App\Http\Middleware\TokenCheckMiddleware;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
+use Tymon\JWTAuth\Http\Middleware\Authenticate;
 
 class Kernel extends HttpKernel
 {
@@ -60,6 +63,9 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+        'token_check' => TokenCheckMiddleware::class,
+        'jwt.auth' => Authenticate::class,
+        'api.json' => ApiJsonMiddleware::class
     ];
 
     /**
@@ -72,6 +78,7 @@ class Kernel extends HttpKernel
     protected $middlewarePriority = [
         \Illuminate\Session\Middleware\StartSession::class,
         \Illuminate\View\Middleware\ShareErrorsFromSession::class,
+        ApiJsonMiddleware::class,
         \App\Http\Middleware\Authenticate::class,
         \Illuminate\Session\Middleware\AuthenticateSession::class,
         \Illuminate\Routing\Middleware\SubstituteBindings::class,
